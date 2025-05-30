@@ -54,7 +54,7 @@ class SteganographyApp:
         self.root = root
         self.root.title("🛡️ Steganography App ")
         self.root.geometry("840x700")  # Increased height for additional controls
-        self.root.configure(bg="#9fdbee")
+        self.root.configure(bg="#f0f2f5")
         
         # Try to set app icon
         try:
@@ -92,8 +92,8 @@ class SteganographyApp:
         self.notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
         # Create tabs
-        self.hide_tab = tk.Frame(self.notebook, bg="#9fdbee")
-        self.extract_tab = tk.Frame(self.notebook, bg="#9fdbee")
+        self.hide_tab = tk.Frame(self.notebook, bg="#f0f2f5")
+        self.extract_tab = tk.Frame(self.notebook, bg="#f0f2f5")
         
         self.notebook.add(self.hide_tab, text="Hide File(s)",image=self.icon_hide1, compound="left" )
         self.notebook.add(self.extract_tab, text="Extract File(s)",image=self.icon_extract, compound="left")
@@ -118,13 +118,13 @@ class SteganographyApp:
     def setup_hide_tab(self):
         """Setup the hide file tab"""
         # Create main frame with scrollbar
-        main_container = tk.Frame(self.hide_tab, bg="#9fdbee")
+        main_container = tk.Frame(self.hide_tab, bg="#f0f2f5")
         main_container.pack(fill=tk.BOTH, expand=True)
         
         # Add scrollbar
-        canvas = tk.Canvas(main_container, bg="#9fdbee")
+        canvas = tk.Canvas(main_container, bg="#f0f2f5")
         scrollbar = ttk.Scrollbar(main_container, orient="vertical", command=canvas.yview)
-        scrollable_frame = tk.Frame(canvas, bg="#9fdbee")
+        scrollable_frame = tk.Frame(canvas, bg="#f0f2f5")
         
         scrollable_frame.bind(
             "<Configure>",
@@ -140,20 +140,20 @@ class SteganographyApp:
         scrollbar.pack(side="right", fill="y")
         
         # Main frame
-        main_frame = tk.Frame(scrollable_frame, bg="#9fdbee", padx=20, pady=20)
+        main_frame = tk.Frame(scrollable_frame, bg="#f0f2f5", padx=20, pady=20)
         main_frame.pack(fill=tk.BOTH, expand=True)
         
         # Title
         title_label = tk.Label(main_frame, text="  Hide File(s) in Image",  image=self.icon_hide, compound="left",
-                              font=("Helvetica", 16, "bold"), bg="#9fdbee")
+                              font=("Helvetica", 16, "bold"), bg="#f0f2f5")
         title_label.pack(pady=(0, 20))
         
         # Create content frame
-        content_frame = tk.Frame(main_frame, bg="#9fdbee")
+        content_frame = tk.Frame(main_frame, bg="#f0f2f5")
         content_frame.pack(fill=tk.BOTH, expand=True)
         
         # Left frame for image
-        left_frame = tk.LabelFrame(content_frame, text="Carrier Image",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        left_frame = tk.LabelFrame(content_frame, text="Carrier Image",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         left_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
         
         # Image preview
@@ -169,34 +169,34 @@ class SteganographyApp:
         
         # Image path display
         self.image_path_label = tk.Label(left_frame, textvariable=self.image_path, 
-                                        bg="#9fdbee", wraplength=300)
+                                        bg="#f0f2f5", wraplength=300)
         self.image_path_label.pack(pady=5, fill=tk.X)
         
         # Image capacity info
         self.image_capacity_label = tk.Label(left_frame, text="Capacity: Unknown", font=("Segoe UI", 8, "bold"),
-                                           bg="#9fdbee")
+                                           bg="#f0f2f5")
         self.image_capacity_label.pack(pady=5)
         
         # Right frame for file(s)
-        right_frame = tk.LabelFrame(content_frame, text="File(s) to Hide", font=("Segoe UI", 8, "bold") ,bg="#9fdbee", padx=10, pady=10 )
+        right_frame = tk.LabelFrame(content_frame, text="File(s) to Hide", font=("Segoe UI", 8, "bold") ,bg="#f0f2f5", padx=10, pady=10 )
         right_frame.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
         
         # File mode selection
-        file_mode_frame = tk.Frame(right_frame, bg="#9fdbee")
+        file_mode_frame = tk.Frame(right_frame, bg="#f0f2f5")
         file_mode_frame.pack(fill=tk.X, pady=5)
         
         single_file_radio = tk.Radiobutton(file_mode_frame, text="Single File", 
                                           variable=self.use_multiple_files, value=False,
-                                          bg="#9fdbee", command=self.toggle_file_mode)
+                                          bg="#f0f2f5", command=self.toggle_file_mode)
         single_file_radio.pack(side=tk.LEFT, padx=10)
         
         multiple_files_radio = tk.Radiobutton(file_mode_frame, text="Multiple Files (ZIP)", 
                                              variable=self.use_multiple_files, value=True,
-                                             bg="#9fdbee", command=self.toggle_file_mode)
+                                             bg="#f0f2f5", command=self.toggle_file_mode)
         multiple_files_radio.pack(side=tk.LEFT, padx=10)
         
         # Single file frame
-        self.single_file_frame = tk.Frame(right_frame, bg="#9fdbee")
+        self.single_file_frame = tk.Frame(right_frame, bg="#f0f2f5")
         self.single_file_frame.pack(fill=tk.BOTH, expand=True)
         
         # File info
@@ -212,25 +212,25 @@ class SteganographyApp:
         
         # File path display
         self.file_path_label = tk.Label(self.single_file_frame, textvariable=self.file_path, 
-                                       bg="#9fdbee", wraplength=300)
+                                       bg="#f0f2f5", wraplength=300)
         self.file_path_label.pack(pady=5, fill=tk.X)
         
         # Size limit info for single file
-        self.single_file_capacity_frame = tk.Frame(self.single_file_frame, bg="#9fdbee")
+        self.single_file_capacity_frame = tk.Frame(self.single_file_frame, bg="#f0f2f5")
         self.single_file_capacity_frame.pack(fill=tk.X, pady=5)
         
         self.single_file_capacity_label = tk.Label(self.single_file_capacity_frame, 
                                                  text="Max Size: Unknown", 
-                                                 bg="#9fdbee", fg="#2563eb", 
+                                                 bg="#f0f2f5", fg="#2563eb", 
                                                  font=("Helvetica", 9, "bold"))
         self.single_file_capacity_label.pack(side=tk.LEFT, padx=5)
         
         # Capacity usage for single file
-        self.single_file_usage_frame = tk.Frame(self.single_file_frame, bg="#9fdbee")
+        self.single_file_usage_frame = tk.Frame(self.single_file_frame, bg="#f0f2f5")
         self.single_file_usage_frame.pack(fill=tk.X, pady=5)
         
         self.single_file_usage_label = tk.Label(self.single_file_usage_frame, 
-                                              text="Capacity Usage:",font=("Segoe UI", 8, "bold"), bg="#9fdbee")
+                                              text="Capacity Usage:",font=("Segoe UI", 8, "bold"), bg="#f0f2f5")
         self.single_file_usage_label.pack(side=tk.LEFT, padx=5)
         
         self.single_file_usage_bar = ttk.Progressbar(self.single_file_usage_frame, 
@@ -238,32 +238,32 @@ class SteganographyApp:
         self.single_file_usage_bar.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
         
         self.single_file_usage_percent = tk.Label(self.single_file_usage_frame, 
-                                                text="0%", bg="#9fdbee", width=5)
+                                                text="0%", bg="#f0f2f5", width=5)
         self.single_file_usage_percent.pack(side=tk.LEFT, padx=5)
         
         # Multiple files frame
-        self.multiple_files_frame = tk.Frame(right_frame, bg="#9fdbee")
+        self.multiple_files_frame = tk.Frame(right_frame, bg="#f0f2f5")
         # Initially hidden, will be shown when multiple files mode is selected
         
         # Size limit info frame
-        size_limit_frame = tk.Frame(self.multiple_files_frame, bg="#9fdbee")
+        size_limit_frame = tk.Frame(self.multiple_files_frame, bg="#f0f2f5")
         size_limit_frame.pack(fill=tk.X, pady=5)
         
         # Size limit label (now just displays the limit, not editable)
-        size_limit_label = tk.Label(size_limit_frame, text="Max Size:", bg="#9fdbee")
+        size_limit_label = tk.Label(size_limit_frame, text="Max Size:", bg="#f0f2f5")
         size_limit_label.pack(side=tk.LEFT, padx=5)
         
         self.size_limit_display = tk.Label(size_limit_frame, 
                                           text="Based on image capacity", 
-                                          bg="#9fdbee", fg="#2563eb", font=("Helvetica", 9, "bold"))
+                                          bg="#f0f2f5", fg="#2563eb", font=("Helvetica", 9, "bold"))
         self.size_limit_display.pack(side=tk.LEFT, padx=5)
         
         # Files list frame
-        files_list_frame = tk.Frame(self.multiple_files_frame, bg="#9fdbee")
+        files_list_frame = tk.Frame(self.multiple_files_frame, bg="#f0f2f5")
         files_list_frame.pack(fill=tk.BOTH, expand=True, pady=5)
         
         # Create a frame for the listbox and scrollbar
-        list_container = tk.Frame(files_list_frame, bg="#9fdbee")
+        list_container = tk.Frame(files_list_frame, bg="#f0f2f5")
         list_container.pack(fill=tk.BOTH, expand=True)
         
         # Files listbox with scrollbar
@@ -275,24 +275,24 @@ class SteganographyApp:
         files_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
         # Total size label
-        self.total_size_label = tk.Label(files_list_frame, text="Total Size: 0 KB", bg="#9fdbee")
+        self.total_size_label = tk.Label(files_list_frame, text="Total Size: 0 KB", bg="#f0f2f5")
         self.total_size_label.pack(pady=5, anchor=tk.W)
         
         # Capacity usage indicator
-        self.capacity_usage_frame = tk.Frame(files_list_frame, bg="#9fdbee")
+        self.capacity_usage_frame = tk.Frame(files_list_frame, bg="#f0f2f5")
         self.capacity_usage_frame.pack(fill=tk.X, pady=5)
         
-        self.capacity_usage_label = tk.Label(self.capacity_usage_frame, text="Capacity Usage:",font=("Segoe UI", 8, "bold"), bg="#9fdbee")
+        self.capacity_usage_label = tk.Label(self.capacity_usage_frame, text="Capacity Usage:",font=("Segoe UI", 8, "bold"), bg="#f0f2f5")
         self.capacity_usage_label.pack(side=tk.LEFT, padx=5)
         
         self.capacity_usage_bar = ttk.Progressbar(self.capacity_usage_frame, orient=tk.HORIZONTAL, length=200)
         self.capacity_usage_bar.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
         
-        self.capacity_usage_percent = tk.Label(self.capacity_usage_frame, text="0%", bg="#9fdbee", width=5)
+        self.capacity_usage_percent = tk.Label(self.capacity_usage_frame, text="0%", bg="#f0f2f5", width=5)
         self.capacity_usage_percent.pack(side=tk.LEFT, padx=5)
         
         # Buttons frame
-        files_buttons_frame = tk.Frame(self.multiple_files_frame, bg="#9fdbee")
+        files_buttons_frame = tk.Frame(self.multiple_files_frame, bg="#f0f2f5")
         files_buttons_frame.pack(fill=tk.X, pady=5)
         
         # Add files button
@@ -318,64 +318,64 @@ class SteganographyApp:
         content_frame.grid_columnconfigure(1, weight=1)
         
         # Image options frame (initially hidden)
-        self.image_options_frame = tk.LabelFrame(main_frame, text="Image Compression Options", bg="#9fdbee", padx=10, pady=10)
+        self.image_options_frame = tk.LabelFrame(main_frame, text="Image Compression Options", bg="#f0f2f5", padx=10, pady=10)
         
         # Image quality slider
-        quality_label = tk.Label(self.image_options_frame, text="Image Quality:", bg="#9fdbee")
+        quality_label = tk.Label(self.image_options_frame, text="Image Quality:", bg="#f0f2f5")
         quality_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
         
         self.quality_slider = Scale(self.image_options_frame, from_=10, to=100, 
                                    orient=tk.HORIZONTAL, variable=self.image_quality,
-                                   length=300, bg="#9fdbee", highlightthickness=0,
+                                   length=300, bg="#f0f2f5", highlightthickness=0,
                                    command=self.update_compression_preview)
         self.quality_slider.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
         
         quality_value_label = tk.Label(self.image_options_frame, textvariable=self.image_quality, 
-                                      bg="#9fdbee", width=3)
+                                      bg="#f0f2f5", width=3)
         quality_value_label.grid(row=0, column=2, padx=5, pady=5)
         
         # Resize slider
-        resize_label = tk.Label(self.image_options_frame, text="Resize %:", bg="#9fdbee")
+        resize_label = tk.Label(self.image_options_frame, text="Resize %:", bg="#f0f2f5")
         resize_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
         
         self.resize_slider = Scale(self.image_options_frame, from_=10, to=100, 
                                   orient=tk.HORIZONTAL, variable=self.resize_percentage,
-                                  length=300, bg="#9fdbee", highlightthickness=0,
+                                  length=300, bg="#f0f2f5", highlightthickness=0,
                                   command=self.update_compression_preview)
         self.resize_slider.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         
         resize_value_label = tk.Label(self.image_options_frame, textvariable=self.resize_percentage, 
-                                     bg="#9fdbee", width=3)
+                                     bg="#f0f2f5", width=3)
         resize_value_label.grid(row=1, column=2, padx=5, pady=5)
         
         # Optimize checkbox
         optimize_check = tk.Checkbutton(self.image_options_frame, text="Optimize Image", 
-                                       variable=self.optimize_image, bg="#9fdbee",
+                                       variable=self.optimize_image, bg="#f0f2f5",
                                        command=self.update_compression_preview)
         optimize_check.grid(row=2, column=0, columnspan=3, padx=5, pady=5, sticky="w")
         
         # Preview frame
-        preview_frame = tk.Frame(self.image_options_frame, bg="#9fdbee")
+        preview_frame = tk.Frame(self.image_options_frame, bg="#f0f2f5")
         preview_frame.grid(row=3, column=0, columnspan=3, padx=5, pady=10, sticky="ew")
         
         # Original image preview
-        original_preview_frame = tk.LabelFrame(preview_frame, text="Original", bg="#9fdbee", padx=5, pady=5)
+        original_preview_frame = tk.LabelFrame(preview_frame, text="Original", bg="#f0f2f5", padx=5, pady=5)
         original_preview_frame.grid(row=0, column=0, padx=5, pady=5)
         
         self.original_preview = tk.Label(original_preview_frame, text="No image", bg="#ffffff", width=20, height=10)
         self.original_preview.pack(padx=5, pady=5)
         
-        self.original_size_label = tk.Label(original_preview_frame, text="Size: 0 KB", bg="#9fdbee")
+        self.original_size_label = tk.Label(original_preview_frame, text="Size: 0 KB", bg="#f0f2f5")
         self.original_size_label.pack(pady=5)
         
         # Compressed image preview
-        compressed_preview_frame = tk.LabelFrame(preview_frame, text="Compressed", bg="#9fdbee", padx=5, pady=5)
+        compressed_preview_frame = tk.LabelFrame(preview_frame, text="Compressed", bg="#f0f2f5", padx=5, pady=5)
         compressed_preview_frame.grid(row=0, column=1, padx=5, pady=5)
         
         self.compressed_preview = tk.Label(compressed_preview_frame, text="No image", bg="#ffffff", width=20, height=10)
         self.compressed_preview.pack(padx=5, pady=5)
         
-        self.compressed_size_label = tk.Label(compressed_preview_frame, text="Size: 0 KB", bg="#9fdbee")
+        self.compressed_size_label = tk.Label(compressed_preview_frame, text="Size: 0 KB", bg="#f0f2f5")
         self.compressed_size_label.pack(pady=5)
         
         # Apply compression button
@@ -388,7 +388,7 @@ class SteganographyApp:
         self.image_options_frame.grid_columnconfigure(1, weight=1)
         
         # Output directory frame
-        output_frame = tk.LabelFrame(main_frame, text="Output Directory",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        output_frame = tk.LabelFrame(main_frame, text="Output Directory",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         output_frame.pack(fill=tk.X, pady=10)
         
         # Output directory path
@@ -403,18 +403,18 @@ class SteganographyApp:
         output_frame.grid_columnconfigure(0, weight=1)
         
         # Password frame
-        self.password_frame = tk.LabelFrame(main_frame, text="Security",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        self.password_frame = tk.LabelFrame(main_frame, text="Security",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         self.password_frame.pack(fill=tk.X, pady=10)
         
         # Password label and entry
-        password_label = tk.Label(self.password_frame, text="Password:", bg="#9fdbee")
+        password_label = tk.Label(self.password_frame, text="Password:", bg="#f0f2f5")
         password_label.grid(row=0, column=0, padx=5, pady=5)
         
         password_entry = tk.Entry(self.password_frame, textvariable=self.password, show="*", width=40)
         password_entry.grid(row=0, column=1, padx=5, pady=5)
         
         # Buttons frame
-        buttons_frame = tk.Frame(main_frame, bg="#9fdbee")
+        buttons_frame = tk.Frame(main_frame, bg="#f0f2f5")
         buttons_frame.pack(fill=tk.X, pady=10)
         
         # Hide file button
@@ -425,14 +425,14 @@ class SteganographyApp:
         self.hide_btn.pack(side=tk.LEFT, padx=10, expand=True, fill=tk.X)
         
         # Status bar
-        status_frame = tk.Frame(main_frame, bg="#9fdbee")
+        status_frame = tk.Frame(main_frame, bg="#f0f2f5")
         status_frame.pack(fill=tk.X, pady=10)
         
         self.progress_bar = ttk.Progressbar(status_frame, orient=tk.HORIZONTAL, 
                                            length=100, mode='indeterminate')
         self.progress_bar.pack(fill=tk.X, padx=10, pady=5)
         
-        status_label = tk.Label(status_frame, textvariable=self.status, bg="#9fdbee")
+        status_label = tk.Label(status_frame, textvariable=self.status, bg="#f0f2f5")
         status_label.pack(pady=5)
         
         # Check for valid inputs when variables change
@@ -445,16 +445,16 @@ class SteganographyApp:
     def setup_extract_tab(self):
         """Setup the extract file tab"""
         # Create main frame
-        main_frame = tk.Frame(self.extract_tab, bg="#9fdbee", padx=20, pady=20)
+        main_frame = tk.Frame(self.extract_tab, bg="#f0f2f5", padx=20, pady=20)
         main_frame.pack(fill=tk.BOTH, expand=True)
         
         # Title
         title_label = tk.Label(main_frame, text=" Extract Hidden File(s)",image=self.icon_extract1, compound="left",
-                              font=("Helvetica", 16, "bold"), bg="#9fdbee")
+                              font=("Helvetica", 16, "bold"), bg="#f0f2f5")
         title_label.pack(pady=(0, 20))
         
         # Image frame
-        image_frame = tk.LabelFrame(main_frame, text="Image with Hidden Data",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        image_frame = tk.LabelFrame(main_frame, text="Image with Hidden Data",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         image_frame.pack(fill=tk.BOTH, expand=True, pady=10)
         
         # Image preview
@@ -471,15 +471,15 @@ class SteganographyApp:
         # Image path display
         self.extract_image_path = tk.StringVar()
         self.extract_image_path_label = tk.Label(image_frame, textvariable=self.extract_image_path, 
-                                               bg="#9fdbee", wraplength=700)
+                                               bg="#f0f2f5", wraplength=700)
         self.extract_image_path_label.pack(pady=5, fill=tk.X)
         
         # Password frame
-        extract_password_frame = tk.LabelFrame(main_frame, text="Security",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        extract_password_frame = tk.LabelFrame(main_frame, text="Security",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         extract_password_frame.pack(fill=tk.X, pady=10)
         
         # Password label and entry
-        extract_password_label = tk.Label(extract_password_frame, text="Password:", bg="#9fdbee")
+        extract_password_label = tk.Label(extract_password_frame, text="Password:", bg="#f0f2f5")
         extract_password_label.grid(row=0, column=0, padx=5, pady=5)
         
         self.extract_password = tk.StringVar()
@@ -488,7 +488,7 @@ class SteganographyApp:
         extract_password_entry.grid(row=0, column=1, padx=5, pady=5)
         
         # Output directory frame
-        output_frame = tk.LabelFrame(main_frame, text="Output Directory",font=("Segoe UI", 8, "bold"), bg="#9fdbee", padx=10, pady=10)
+        output_frame = tk.LabelFrame(main_frame, text="Output Directory",font=("Segoe UI", 8, "bold"), bg="#f0f2f5", padx=10, pady=10)
         output_frame.pack(fill=tk.X, pady=10)
         
         # Output directory path
@@ -506,13 +506,13 @@ class SteganographyApp:
         # Auto extract ZIP option
         self.auto_extract_zip = tk.BooleanVar(value=True)
         auto_extract_check = tk.Checkbutton(output_frame, text="Auto-extract ZIP files", 
-                                           variable=self.auto_extract_zip, bg="#9fdbee")
+                                           variable=self.auto_extract_zip, bg="#f0f2f5")
         auto_extract_check.grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky="w")
         
         output_frame.grid_columnconfigure(0, weight=1)
         
         # Buttons frame
-        extract_buttons_frame = tk.Frame(main_frame, bg="#9fdbee")
+        extract_buttons_frame = tk.Frame(main_frame, bg="#f0f2f5")
         extract_buttons_frame.pack(fill=tk.X, pady=10)
         
         # Extract file button
@@ -523,7 +523,7 @@ class SteganographyApp:
         self.extract_btn.pack(side=tk.LEFT, padx=10, expand=True, fill=tk.X)
         
         # Status bar
-        extract_status_frame = tk.Frame(main_frame, bg="#9fdbee")
+        extract_status_frame = tk.Frame(main_frame, bg="#f0f2f5")
         extract_status_frame.pack(fill=tk.X, pady=10)
         
         self.extract_progress_bar = ttk.Progressbar(extract_status_frame, orient=tk.HORIZONTAL, 
