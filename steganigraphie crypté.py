@@ -53,7 +53,7 @@ class SteganographyApp:
     def __init__(self, root):
         self.root = root
         self.root.title("🛡️ Steganography App ")
-        self.root.geometry("850x700")  # Increased height for additional controls
+        self.root.geometry("840x700")  # Increased height for additional controls
         self.root.configure(bg="#9fdbee")
         
         # Try to set app icon
